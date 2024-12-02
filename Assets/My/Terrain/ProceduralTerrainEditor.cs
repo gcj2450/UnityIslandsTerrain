@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEditor;
 //using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
-
-[CustomEditor(typeof(ProceduralTerrain))]
-public class ProceduralTerrainEditor : Editor
+namespace UnityIslandsTerrain
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(ProceduralTerrain))]
+    public class ProceduralTerrainEditor : Editor
     {
-        DrawDefaultInspector();
-        if (GUILayout.Button("Recreate Chunks"))
+        public override void OnInspectorGUI()
         {
-            (target as ProceduralTerrain).CreateChunks();
+            DrawDefaultInspector();
+            if (GUILayout.Button("Recreate Chunks"))
+            {
+                (target as ProceduralTerrain).CreateChunks();
+            }
         }
     }
 }
